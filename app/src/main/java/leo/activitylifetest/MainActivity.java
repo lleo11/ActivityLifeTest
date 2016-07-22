@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,10 +21,9 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "友情提示", Toast.LENGTH_SHORT).show();
 
-                                          Intent intent = new Intent(MainActivity.this, Activity2.class);
-                                          startActivity(intent);
-                                      }
+                                        }
                                   });
 
 
