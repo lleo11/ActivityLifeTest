@@ -6,25 +6,30 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    private static final String TEXTVALUE = "SecondActivity_EditText";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("MainActivity","onCreate is runned");
+        Log.d("MainActivity", "onCreate is runned");
         Button button = (Button) findViewById(R.id.activity_main_button);
-        button.setOnClickListener(new View.OnClickListener(){
+        final EditText editText = (EditText) findViewById(R.id.default_activity_editText);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "友情提示", Toast.LENGTH_SHORT).show();
-
-                                        }
-                                  });
+                Intent intent = new Intent(MainActivity.this, Activity2.class);
+                intent.putExtra(TEXTVALUE, editText.getText());
+//                Toast.makeText(MainActivity.this, "友情提示", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+        });
 
 
     }
